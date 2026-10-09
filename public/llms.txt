@@ -1,15 +1,18 @@
-# Ricardo Silva - Computer Systems Engineer
+# Ricardo Silva - Computer Systems Engineering Graduate
 
-Portfolio of Ricardo Silva, a Computer Systems Engineer based in Guimarães, Portugal. The professional focus is people management, process coordination, and operational improvement through user-centered systems.
+Portfolio of Ricardo Silva, a Computer Systems Engineering graduate and Master's student in Computer Science at IPCA, based in Guimarães, Portugal. His experience includes services and materials operations, retail product management and purchasing, inventory, and pricing.
 
 ## Site Structure
 - `/`: Introduction, professional focus, current projects, and experience.
-- `/about`: Background and approach to people, processes, and operations.
+- `/about`: Background, education, professional experience, languages, and approach to people, processes, and operations.
 - `/interests`: Focus areas in people management, process coordination, and continuous improvement.
 - `/projects`: Current systems engineering projects and selected earlier work.
 
 ## Professional Focus
-Computer Systems Engineering applied to people management, process coordination, operational support, and process optimization.
+Bachelor's degree in Computer Systems Engineering, completed in 2026. Currently pursuing a Master's in Computer Science at IPCA.
+Languages: Portuguese (native), English (B2), and German (A1; currently learning).
+Aiming to pursue a double-degree pathway with one year at IPCA and one year in Austria at FHV - Vorarlberg University of Applied Sciences.
+Professional experience includes services and materials operations, product management, purchasing, inventory, pricing, and process optimization.
 Based in Guimarães, Portugal.
 
 ## Current Projects

@@ -14,13 +14,15 @@ const LocationWidget = dynamic(() => import('@/components/LocationWidget').then(
 const llmMarkdown = `
 # Ricardo Silva - Computer Systems Engineer | People & Process Improvement
 
-I am a Computer Systems Engineer and Services and Materials Specialist based in Guimarães, Portugal. I focus on people management, process coordination, and applying systems thinking to make work clearer and more efficient.
+I am a Computer Systems Engineering graduate and Master's student in Computer Science at IPCA, based in Guimarães, Portugal. My experience spans services and materials operations, retail product management and purchasing, inventory, and pricing.
 
 ## Professional Profile
-- **Professional identity**: Computer Systems Engineer.
+- **Education**: Bachelor's degree in Computer Systems Engineering, completed in 2026; currently pursuing a Master's in Computer Science at IPCA.
 - **Focus**: People management, operational processes, and continuous improvement.
 - **Approach**: Combine systems thinking with collaboration, clear communication, and practical process improvement.
-- **Experience**: Services and materials operations, supplier coordination, billing, invoicing, and inventory support.
+- **Experience**: Services and materials operations, retail product management and purchasing, inventory, pricing, billing, and invoicing.
+- **Languages**: Portuguese (native), English (B2), German (A1; currently learning).
+- **Study goal**: Aiming to pursue a double-degree pathway with one year at IPCA and one year in Austria at FHV - Vorarlberg University of Applied Sciences.
 
 ## Areas of Expertise
 - People and team collaboration.
@@ -49,7 +51,7 @@ export default function Home() {
             </h1>
             
             <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-mono text-zinc-600 dark:text-zinc-400 mb-8 px-4 py-2 border border-zinc-200 dark:border-zinc-800 rounded-full bg-zinc-50 dark:bg-zinc-900/50">
-                <span>Computer Systems Engineer</span>
+                <span>Computer Systems Engineering Graduate</span>
                 <span className="opacity-50">•</span>
                 <span>People &amp; Process Improvement</span>
                 <span className="opacity-50">•</span>
@@ -58,10 +60,10 @@ export default function Home() {
 
             <div className="max-w-xl mx-auto space-y-5 text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-pretty text-center">
               <p>
-                I&apos;m a <span className="underline decoration-purple-500 decoration-wavy underline-offset-4 text-zinc-900 dark:text-zinc-200 font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Computer Systems Engineer</span> focused on people, processes, and operational improvement. I use systems thinking to understand how teams work and find practical ways to make everyday processes clearer and more efficient.
+                I&apos;m a <span className="underline decoration-purple-500 decoration-wavy underline-offset-4 text-zinc-900 dark:text-zinc-200 font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Computer Systems Engineering graduate</span> and a Master&apos;s student in Computer Science at IPCA, focused on people, processes, and operational improvement.
               </p>
               <p>
-                My experience in services and materials brings together supplier coordination, billing, inventory, and cost awareness. I&apos;m currently working on an orthopaedic X-ray measurement assistant and a user-friendly ERP for a textile company.
+                My experience includes services and materials operations as well as product management, purchasing, inventory, and pricing in retail. I&apos;m currently working on an orthopaedic X-ray measurement assistant and a user-friendly ERP for a textile company.
               </p>
             </div>
 
@@ -113,7 +115,7 @@ export default function Home() {
             <div className="mb-8">
               <span className="text-zinc-600 dark:text-zinc-400 font-mono tracking-widest uppercase text-sm">So Far</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-1">
-                Experience &amp; Education
+                Career
               </h2>
             </div>
 
