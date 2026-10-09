@@ -2,25 +2,20 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { skillsCategories } from "@/content/skills";
-
-const marqueeSkills = skillsCategories.flatMap(c => c.skills);
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-            delayChildren: 0.1
-        }
-    }
+        transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+    },
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 20 } }
+    hidden: { opacity: 0, y: 12 },
+    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 20 } },
 };
 
 export function TechStack() {
@@ -33,107 +28,37 @@ export function TechStack() {
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 hover:text-black dark:hover:text-white transition-all duration-300"
                 >
-                    {isExpanded ? "Show Less" : "View Full Stack"}
+                    {isExpanded ? "Show Less" : "View All Areas"}
                     {isExpanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
                 </button>
             </div>
 
-            <AnimatePresence mode="wait">
-                {!isExpanded ? (
-                    <motion.div
-                        key="marquee"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
-                    >
-                        <div className="flex w-max animate-infinite-scroll">
-                            <div className="flex gap-12 py-4 pr-12">
-                                {marqueeSkills.map((tech, index) => (
-                                    <div key={`m1-${index}`} className="flex flex-col items-center justify-center gap-2">
-                                        <div className="h-10 w-10 transition-all duration-300">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={tech.iconUrl ?? `https://cdn.simpleicons.org/${tech.slug}`}
-                                                alt={tech.name}
-                                                className="h-full w-full object-contain opacity-80 hover:opacity-100 transition-all duration-300 brightness-0 hover:brightness-100 dark:brightness-0 dark:invert dark:hover:invert-0 dark:hover:brightness-100"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="flex gap-12 py-4 pr-12">
-                                {marqueeSkills.map((tech, index) => (
-                                    <div key={`m2-${index}`} className="flex flex-col items-center justify-center gap-2">
-                                        <div className="h-10 w-10 transition-all duration-300">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={tech.iconUrl ?? `https://cdn.simpleicons.org/${tech.slug}`}
-                                                alt={tech.name}
-                                                className="h-full w-full object-contain opacity-80 hover:opacity-100 transition-all duration-300 brightness-0 hover:brightness-100 dark:brightness-0 dark:invert dark:hover:invert-0 dark:hover:brightness-100"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                className="grid grid-cols-1 gap-8 sm:grid-cols-2 pt-4"
+            >
+                {skillsCategories.map((category) => (
+                    <motion.div variants={itemVariants} key={category.name} className="space-y-4">
+                        <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-600 border-b border-zinc-100 dark:border-zinc-800 pb-2 flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                            {category.name}
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                            {category.skills.slice(0, isExpanded ? undefined : 4).map((skill) => (
+                                <motion.span
+                                    key={skill}
+                                    whileHover={{ y: -2 }}
+                                    className="rounded-full border border-zinc-200 dark:border-zinc-800 px-3 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 transition-colors hover:border-purple-500/40 hover:bg-purple-50/50 dark:hover:bg-purple-900/10"
+                                >
+                                    {skill}
+                                </motion.span>
+                            ))}
                         </div>
                     </motion.div>
-                ) : (
-                    <motion.div
-                        key="grid"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: "circOut" }}
-                        className="overflow-hidden"
-                    >
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="show"
-                            className="grid grid-cols-1 gap-8 sm:grid-cols-2 pt-4"
-                        >
-                            {skillsCategories.map((category) => (
-                                <motion.div variants={itemVariants} key={category.name} className="space-y-4">
-                                    <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-600 border-b border-zinc-100 dark:border-zinc-800 pb-2 flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500" />
-                                        {category.name}
-                                    </h3>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        {category.skills.map((skill) => (
-                                            <motion.div
-                                                key={skill.name}
-                                                whileHover={{ scale: 1.05, y: -2 }}
-                                                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                                className="group flex items-center gap-3 rounded-xl border border-transparent p-2.5 transition-all hover:border-purple-500/30 dark:hover:border-purple-500/30 hover:bg-purple-50/50 dark:hover:bg-purple-900/10 hover:shadow-lg hover:shadow-purple-500/5 cursor-default relative overflow-hidden"
-                                            >
-                                                {/* Hidden background flare on hover */}
-                                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-
-                                                <div className="h-6 w-6 shrink-0 transition-all duration-300">
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img
-                                                        src={skill.iconUrl ?? `https://cdn.simpleicons.org/${skill.slug}`}
-                                                        alt={skill.name}
-                                                        className="h-full w-full object-contain opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-md brightness-0 group-hover:brightness-100 dark:brightness-0 dark:invert dark:group-hover:invert-0 dark:group-hover:brightness-100"
-                                                        loading="lazy"
-                                                    />
-                                                </div>
-                                                <span className="text-sm font-semibold tracking-tight text-zinc-600 dark:text-zinc-400 group-hover:text-purple-900 dark:group-hover:text-purple-100 transition-colors">
-                                                    {skill.name}
-                                                </span>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                ))}
+            </motion.div>
         </div>
     );
 }

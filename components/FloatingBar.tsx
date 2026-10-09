@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 import LLMToggle from "./LLMToggle";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { FaXTwitter, FaInstagram, FaDiscord } from "react-icons/fa6";
 import { FloatingDock } from "./ui/FloatingDock";
-import { SpotifyWidget } from "./SpotifyWidget";
 
 export default function FloatingBar() {
     const links = [
@@ -13,32 +11,17 @@ export default function FloatingBar() {
         {
             title: "GitHub",
             icon: <Github className="h-full w-full text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 group-hover:dark:text-zinc-100 transition-colors" />,
-            href: "https://github.com/vatsal30",
+            href: "https://github.com/ricardosilva21A",
         },
         {
             title: "LinkedIn",
             icon: <Linkedin className="h-full w-full text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 group-hover:dark:text-zinc-100 transition-colors" />,
-            href: "https://linkedin.com/in/vatsal30",
-        },
-        {
-            title: "X (Twitter)",
-            icon: <FaXTwitter className="h-full w-full text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 group-hover:dark:text-zinc-100 transition-colors" />,
-            href: "https://x.com/vatsal30",
-        },
-        {
-            title: "Instagram",
-            icon: <FaInstagram className="h-full w-full text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 group-hover:dark:text-zinc-100 transition-colors" />,
-            href: "https://www.instagram.com/vatsal._.30/",
-        },
-        {
-            title: "Discord",
-            icon: <FaDiscord className="h-full w-full text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 group-hover:dark:text-zinc-100 transition-colors" />,
-            href: "https://discord.com/users/vatsal._.30",
+            href: "https://linkedin.com/in/ricardofsilva0",
         },
         {
             title: "Email",
             icon: <Mail className="h-full w-full text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 group-hover:dark:text-zinc-100 transition-colors" />,
-            href: "mailto:vatsalds30@gmail.com",
+            href: "mailto:refds1505@gmail.com",
         },
     ];
 
@@ -51,10 +34,6 @@ export default function FloatingBar() {
         >
             <div className="pl-2 pr-2 border-r border-zinc-200 dark:border-zinc-700 h-10 flex items-center">
                 <LLMToggle />
-            </div>
-
-            <div className="hidden sm:flex items-center">
-                <SpotifyWidget />
             </div>
 
             {/* Desktop dock (magnification effect) */}

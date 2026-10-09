@@ -23,32 +23,25 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 
 const projects = [
   {
-    owner: "vatsal30",
+    owner: "ricardosilva21A",
+    repo: "CloudVault",
+    description:
+      "A secure password manager built with Python and SQL storage, focused on privacy and practical usability.",
+    outputFile: "cloudvault.png",
+  },
+  {
+    owner: "ricardosilva21A",
+    repo: "MuseHub",
+    description:
+      "A museum discovery platform built with HTML, Bootstrap, and TypeScript, powered by interactive maps and clear UX.",
+    outputFile: "musehub.png",
+  },
+  {
+    owner: "ricardosilva21A",
     repo: "my-portfolio",
     description:
-      "My personal developer portfolio — a digital workspace with aura effects, Spotify/TMDB integrations, and an LLM-friendly markdown view.",
+      "My personal portfolio built with Next.js and tailored to my work, projects, and profile.",
     outputFile: "my-portfolio.png",
-  },
-  {
-    owner: "vatsal30",
-    repo: "Melanoma-Detection",
-    description:
-      "A CNN-based melanoma detection model that classifies skin lesions from dermoscopic images with high accuracy.",
-    outputFile: "melanoma-detection.png",
-  },
-  {
-    owner: "vatsal30",
-    repo: "LeetCode",
-    description:
-      "A well-organized collection of optimized DSA solutions across topics — from Trees & Graphs to segment trees.",
-    outputFile: "leetcode.png",
-  },
-  {
-    owner: "vatsal30",
-    repo: "Advent-of-Code",
-    description:
-      "My solutions to the annual Advent of Code — sometimes elegant, sometimes brute-forced, always fun.",
-    outputFile: "advent-of-code.png",
   },
 ];
 

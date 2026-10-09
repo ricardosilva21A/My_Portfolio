@@ -41,8 +41,8 @@ export function Globe({ className }: { className?: string }) {
       markerColor: [0.66, 0.33, 0.97], // Purple marker
       glowColor: [0.1, 0.1, 0.1],
       markers: [
-        // Pune, India coordinates
-        { location: [18.5204, 73.8567], size: 0.1 }
+        // Guimarães, Portugal coordinates
+        { location: [41.4444, -8.2962], size: 0.1 }
       ],
       onRender: (state: Record<string, any>) => {
         // Called on every animation frame.

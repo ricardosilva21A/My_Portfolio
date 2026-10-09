@@ -1,8 +1,8 @@
 // GitHub API helper
 import matter from "gray-matter";
 
-const GITHUB_USERNAME = "vatsal30";
-const NOTES_REPO = "vatsal30/Obsidian_backup";
+const GITHUB_USERNAME = "ricardosilva21A";
+const NOTES_REPO = "ricardosilva21A/notes";
 
 export interface Repository {
   id: number;

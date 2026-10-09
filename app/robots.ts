@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://vectorbuilds.dev/sitemap.xml",
+    sitemap: "https://ricardosilva.dev/sitemap.xml",
   };
 }

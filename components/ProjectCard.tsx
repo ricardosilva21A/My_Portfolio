@@ -1,30 +1,38 @@
 "use client";
 
-import Image from "next/image";
-import { Tag } from "lucide-react";
+import { Activity, LockKeyhole, MapPinned, Tag, Workflow } from "lucide-react";
 import { Project } from "@/content/projects";
 import { TechBadge } from "@/components/TechBadge";
 
-function getImageSlug(link: string): string {
-    const repo = link.replace("https://github.com/", "").split("/")[1] ?? "";
-    return repo.toLowerCase();
-}
-
 export function ProjectCard({ project }: { project: Project }) {
-    const imageSrc = `/projects/${getImageSlug(project.link)}.png`;
+    const icons = {
+        healthcare: Activity,
+        erp: Workflow,
+        security: LockKeyhole,
+        discovery: MapPinned,
+    };
+    const ProjectIcon = icons[project.kind];
 
     return (
         <div className="w-full bg-zinc-50 dark:bg-[#1a1a1f] rounded-2xl border border-zinc-200 dark:border-zinc-800/60 shadow-lg overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-1 hover:shadow-purple-500/10 hover:border-purple-500/30">
 
-            {/* Static generated preview image */}
-            <div className="bg-slate-300/60 dark:bg-zinc-700/40 p-4">
-                <div className="relative w-full aspect-[1200/630] rounded-xl overflow-hidden border border-zinc-700/30 shadow-inner bg-[#1c1c22]">
-                    <Image
-                        src={imageSrc}
-                        alt={`${project.title} preview`}
-                        fill
-                        className="object-cover object-top"
-                    />
+            <div className="bg-slate-300/60 p-4 dark:bg-zinc-700/40">
+                <div className="flex aspect-[1200/630] flex-col justify-between overflow-hidden rounded-xl border border-zinc-700/30 bg-gradient-to-br from-zinc-900 via-zinc-800 to-purple-950 p-6 text-white shadow-inner sm:p-8">
+                    <div className="flex items-center justify-between">
+                        <div className="flex gap-1.5" aria-hidden="true">
+                            <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                            <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+                            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                        </div>
+                        <ProjectIcon size={22} className="text-purple-300" aria-hidden="true" />
+                    </div>
+                    <div>
+                        <p className="mb-2 font-mono text-xs uppercase tracking-[0.2em] text-purple-200">
+                            {project.status ?? "Selected project"}
+                        </p>
+                        <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">{project.title}</h3>
+                        <p className="mt-2 line-clamp-2 max-w-xl text-sm leading-relaxed text-zinc-300">{project.description}</p>
+                    </div>
                 </div>
             </div>
 

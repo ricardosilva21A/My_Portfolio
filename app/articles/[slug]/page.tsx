@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const { data } = matter(content);
 
     return {
-        title: `${data.title || slug.replace(/-/g, " ")} | Vector Builds`,
+        title: `${data.title || slug.replace(/-/g, " ")} | Ricardo Silva`,
         description: data.excerpt || `Read article ${slug}`,
     };
 }
@@ -94,7 +94,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     <div className="flex items-center gap-4 text-zinc-500 text-sm font-medium">
                         <time>{formattedDate}</time>
                         <span>•</span>
-                        <span>Vatsal Vora</span>
+                        <span>Ricardo Silva</span>
                     </div>
                 </header>
 

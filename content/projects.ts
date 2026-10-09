@@ -5,47 +5,55 @@ export interface Project {
   link: string;
   story?: string;
   date: string;
+  kind: "healthcare" | "erp" | "security" | "discovery";
+  status?: string;
 }
 
 export const featuredProjects: Project[] = [
   {
-    title: "My Portfolio",
+    title: "Orthopaedic X-ray Measurement Assistant",
     description:
-      "My personal developer portfolio — a digital workspace with a garden, Spotify/TMDB integrations, aura effects, and an LLM-friendly markdown view.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    link: "https://github.com/vatsal30/my-portfolio",
-    date: "March 2026",
+      "A system in development to help orthopaedic clinicians identify the appropriate reference on an X-ray and calculate measurements automatically, supporting a more efficient workflow.",
+    tech: ["Healthcare workflow", "X-ray measurement", "Calculation automation", "Clinical support"],
+    link: "mailto:refds1505@gmail.com?subject=Orthopaedic%20X-ray%20Measurement%20Assistant",
+    date: "In development",
+    kind: "healthcare",
+    status: "In development",
     story:
-      "The second major iteration of my web presence. V2 doubles down on high-performance minimalism — I added an Aura Mode with zen ripple effects, fixed dark mode detection, a persistent Abacus click counter, LLM-friendly markdown mode, and a fully revamped tech stack showcasing my real skills. Built to feel like a workspace, not just a resume.",
+      "This project aims to support orthopaedic clinicians by helping identify the correct reference on an X-ray and automate the associated calculation. The goal is to reduce manual steps and support productivity, with results remaining subject to clinical review.",
   },
   {
-    title: "Melanoma Detection",
+    title: "Textile Company ERP",
     description:
-      "A CNN-based melanoma detection model that classifies skin lesions from dermoscopic images with high accuracy.",
-    tech: ["Python", "TensorFlow", "Keras", "OpenCV"],
-    link: "https://github.com/vatsal30/Melanoma-Detection",
-    date: "May 2024",
+      "An ERP in development for a textile company, with a focus on an intuitive user experience and clear task-by-task manuals.",
+    tech: ["ERP", "Textile operations", "User-friendly design", "Process documentation"],
+    link: "mailto:refds1505@gmail.com?subject=Textile%20Company%20ERP",
+    date: "In development",
+    kind: "erp",
+    status: "In development",
     story:
-      "Built during college — this computer vision pipeline parses thousands of dermoscopic images to spot malignant lesions. Getting recall high enough took weeks of hyperparameter tuning and data augmentation.",
+      "The aim is to make day-to-day ERP tasks easier to understand and use. The project emphasizes a user-friendly experience and comprehensive, practical instructions explaining what each task does and how to complete it.",
   },
   {
-    title: "LeetCode Solutions",
+    title: "CloudVault",
     description:
-      "A well-organized collection of optimized DSA solutions across topics — from Trees & Graphs to segment trees.",
-    tech: ["Python", "JavaScript", "Algorithms"],
-    link: "https://github.com/vatsal30/LeetCode",
-    date: "Continuous",
+      "A secure password manager application built with Python and Tkinter. It focuses on encrypted storage and safe credential management using SQL integration.",
+    tech: ["Python", "Tkinter", "SQL", "Encryption"],
+    link: "https://github.com/ricardosilva21A/CloudVault",
+    date: "2024",
+    kind: "security",
     story:
-      "My daily algorithm journal, heavily organized by topic. It's the kind of repo that grows a little every time I hit a problem I can't shake.",
+      "A practical project focused on secure data handling. The goal was to build a reliable password manager with privacy in mind, combining local application logic with database storage and encryption best practices.",
   },
   {
-    title: "Advent of Code Solutions",
+    title: "MuseHub",
     description:
-      "My solutions to the annual Advent of Code — sometimes elegant, sometimes brute-forced, always fun.",
-    tech: ["Python", "Algorithms"],
-    link: "https://github.com/vatsal30/Advent-of-Code",
-    date: "December Yearly",
+      "A web platform that integrates museums worldwide, built with HTML, Bootstrap, TypeScript, and OpenStreetMap for interactive map-based discovery.",
+    tech: ["HTML", "Bootstrap", "TypeScript", "OpenStreetMap"],
+    link: "https://github.com/pokepark99/Programacao-Web",
+    date: "2024",
+    kind: "discovery",
     story:
-      "The December tradition. 25 days, 25 puzzles, varying levels of coffee required. These repos hold every solution from my clean ones to my 'it works, don't ask' ones.",
+      "This project brought together user experience and geographic data to create a museum discovery platform. It was a strong example of building a polished frontend with clear information architecture and interactive exploration.",
   },
 ];

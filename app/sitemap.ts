@@ -1,17 +1,14 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://vectorbuilds.dev";
+  const baseUrl = "https://ricardosilva.dev";
 
   // Using relative URLs here, which get prefixed with metadataBase or we can output full URLs
   const routes = [
     "",
     "/about",
     "/projects",
-    "/notes",
-    "/articles",
     "/interests",
-    "/toolkit",
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split("T")[0],

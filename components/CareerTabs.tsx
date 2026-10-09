@@ -52,7 +52,7 @@ export function CareerTabs() {
                                 {activeItem.logo ? (
                                     /* eslint-disable-next-line @next/next/no-img-element */
                                     <img src={activeItem.logo} alt={activeItem.company} className="w-full h-full object-cover bg-white" />
-                                ) : activeItem.id === "cspit" ? (
+                                ) : activeItem.id === "ipca" ? (
                                     <GraduationCap size={24} />
                                 ) : (
                                     <Building2 size={24} />
@@ -80,19 +80,12 @@ export function CareerTabs() {
 
                         {activeItem.tech.length > 0 && (
                             <div className="mb-6 space-y-3">
-                                <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Technologies & Tools</h4>
+                                <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Relevant skills &amp; systems</h4>
                                 <div className="flex flex-wrap gap-2">
-                                    {activeItem.tech.map(tech => (
-                                        <div key={tech.name} className="flex items-center justify-center w-10 h-10 rounded-xl border border-zinc-200 dark:border-zinc-700/50 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group relative overflow-hidden ring-1 ring-inset ring-zinc-900/5 dark:ring-white/5 shadow-sm">
-                                            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                                            <img
-                                                src={`https://cdn.simpleicons.org/${tech.slug}`}
-                                                alt={tech.name}
-                                                className="w-5 h-5 object-contain opacity-70 group-hover:opacity-100 transition-opacity brightness-0 dark:brightness-0 dark:invert relative z-10"
-                                                loading="lazy"
-                                            />
-                                        </div>
+                                    {activeItem.tech.map(skill => (
+                                        <span key={skill} className="rounded-full border border-zinc-200 dark:border-zinc-700/50 px-3 py-1.5 text-xs text-zinc-700 dark:text-zinc-300">
+                                            {skill}
+                                        </span>
                                     ))}
                                 </div>
                             </div>

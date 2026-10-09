@@ -5,71 +5,53 @@ export type CareerItem = {
     date: string;
     location: string;
     description: string[];
-    tech: { name: string; slug: string }[];
+    tech: string[];
     link?: string;
     logo?: string;
 };
 
 export const careerData: CareerItem[] = [
     {
-        id: "hcltech",
-        company: "HCLTech",
-        role: "Senior Developer",
-        date: "April 2025 - Present",
-        location: "Pune, India",
+        id: "tmg-mgc",
+        company: "TMG - MGC",
+        role: "Services and Materials Specialist",
+        date: "June 2025 - Present",
+        location: "Guimarães, Portugal",
         description: [
-            "Orchestrating the architectural migration of a legacy logistics system to React and Python FastAPI.",
-            "Engineered a real-time geospatial tracking engine using WebSockets for 250+ concurrent drivers with sub-second latency.",
-            "Designed and implemented core features including Job Creation workflows and comprehensive Driver Audit reports."
+            "Manage billing, invoicing, and operational support using SAP and INTEX platforms, with attention to accurate and timely processing.",
+            "Coordinate with suppliers on service and material procurement, supporting continuity of operations and clear communication.",
+            "Support inventory control, pricing, and cost optimization while maintaining accurate operational records."
         ],
-        tech: [
-            { name: "React", slug: "react" },
-            { name: "Python", slug: "python" },
-            { name: "FastAPI", slug: "fastapi" }
-        ],
-        link: "https://www.hcltech.com/",
-        logo: "https://media.licdn.com/dms/image/v2/C4D0BAQF-RIoeeMTMKQ/company-logo_200_200/company-logo_200_200/0/1664197008219/hcltech_logo?e=1773878400&v=beta&t=T63KwLQh3gX_9Bd-3SfJqIlohR748tLqDWKY0dPj9zc"
+        tech: ["Process coordination", "Supplier management", "Billing & invoicing", "Inventory control", "Cost optimization", "SAP", "INTEX", "ManWinWin"],
+        link: "https://www.tmg-mgc.pt/",
+        logo: "https://logo.clearbit.com/tmg-mgc.pt"
     },
     {
-        id: "crest-data",
-        company: "Crest Data",
-        role: "Senior Software Engineer",
-        date: "May 2021 - April 2025",
-        location: "Ahmedabad, India",
+        id: "lifeguard",
+        company: "Independent",
+        role: "Lifeguard & Swimming Instructor",
+        date: "June 2022 - September 2022",
+        location: "Portugal",
         description: [
-            "Architected an ML-Assisted Thresholding engine to provide automated KPI recommendations.",
-            "Reduced nightly data recalculation search time by 90% through advanced query optimization.",
-            "Developed the Service Insights module using React and Python, reducing false-positive alerts for 700+ enterprise customers.",
-            "Led the development of the Configuration Assistant, recognized at Splunk.conf24 for its innovative use of ML-driven multi-KPI thresholding."
+            "Provided water safety monitoring and emergency response in aquatic environments.",
+            "Delivered swimming instruction, ensured compliance with safety procedures, and maintained a safe, supportive environment for participants.",
+            "Worked as part of a safety-focused setup requiring vigilance, responsibility, and quick decision-making."
         ],
-        tech: [
-            { name: "Python", slug: "python" },
-            { name: "React", slug: "react" },
-            { name: "JavaScript", slug: "javascript" },
-            { name: "GitLab", slug: "gitlab" },
-            { name: "Splunk Cloud", slug: "splunkcloud" },
-            { name: "Django", slug: "django" },
-            { name: "Splunk", slug: "splunk" }
-        ],
-        link: "https://www.crestdata.ai/",
-        logo: "https://media.licdn.com/dms/image/v2/D4D0BAQE_FtL4007RnQ/company-logo_200_200/B4DZvAYvXyIIAI-/0/1768459270280/crest_data_logo?e=1773878400&v=beta&t=snleilE2R78nsmV3Zt0VYdu_qzFPANKI4JO_g3ACN98"
+        tech: ["Safety procedures", "Training", "Communication", "Teamwork"],
+        logo: ""
     },
     {
-        id: "cspit",
-        company: "Chandubhai S. Patel Inst. of Technology",
-        role: "B.Tech in Computer Engineering",
-        date: "Graduated May 2021",
-        location: "Gujarat, India",
+        id: "ipca",
+        company: "IPCA",
+        role: "Computer Systems Engineering",
+        date: "2023 - 2027",
+        location: "Barcelos, Portugal",
         description: [
-            "Graduated with a CGPA of 9.49.",
-            "Gained strong foundational knowledge in algorithms, data structures, and software engineering."
+            "Studying Computer Systems Engineering with a focus on software engineering, systems thinking, and practical problem solving.",
+            "Developing technical foundations in programming, software design, research, and applied digital innovation."
         ],
-        tech: [
-            { name: "C++", slug: "cplusplus" },
-            { name: "Java", slug: "openjdk" },
-            { name: "SQL", slug: "mysql" }
-        ],
-        link: "https://www.charusat.ac.in/",
-        logo: "https://logo.clearbit.com/charusat.ac.in"
+        tech: ["Systems thinking", "Process analysis", "Project coordination", "Continuous learning"],
+        link: "https://www.ipca.pt/",
+        logo: "https://logo.clearbit.com/ipca.pt"
     }
 ];

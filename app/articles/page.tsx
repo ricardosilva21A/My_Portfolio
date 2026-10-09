@@ -7,8 +7,8 @@ import NotesList from "@/components/NotesList";
 export const revalidate = 3600;
 
 export const metadata = {
-    title: "Articles | Vatsal Vora",
-    description: "Long-form articles and engineering deep dives.",
+    title: "Articles | Ricardo Silva",
+    description: "Long-form writing and technical reflections from Ricardo Silva.",
 };
 
 export default async function ArticlesPage() {

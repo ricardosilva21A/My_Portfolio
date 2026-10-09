@@ -1,98 +1,54 @@
-import Image from "next/image";
 import { Github, Linkedin, Mail } from "lucide-react";
 import LLMWrapper from "@/components/LLMWrapper";
 
 export const metadata = {
-    title: "About | Vatsal Vora",
-    description: "About Vatsal Vora - Senior Software Engineer",
+    title: "About | Ricardo Silva",
+    description: "Ricardo Silva is a Computer Systems Engineer focused on people management, process coordination, and operational improvement.",
 };
 
 export default function AboutPage() {
     return (
-        <LLMWrapper llmContent={"# About Me\n\nFull-Stack Engineer | Product Architect with 5 years of experience. I build products that work under pressure. My background is rooted in engineering and distributed systems. Superpower: Debugging."}>
-            <div className="container mx-auto px-4 max-w-5xl pt-32 pb-16 space-y-12 min-h-[80vh]">                
+        <LLMWrapper llmContent={"# About Me\n\nI am a Computer Systems Engineer and Services and Materials Specialist based in Guimarães, Portugal. I focus on people management, process coordination, and continuous improvement, applying systems thinking to real operational needs. I am currently working on an assistant for orthopaedic X-ray measurements and a user-friendly ERP for a textile company."}>
+            <div className="container mx-auto px-4 max-w-5xl pt-32 pb-16 space-y-12 min-h-[80vh]">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-zinc-200 dark:border-zinc-800 pb-10">
                     <h1 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-zinc-100 tracking-tighter">
                         About Me
                     </h1>
                     <div className="px-4 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 text-xs font-mono text-zinc-600">
-                        Full-Stack Engineer | Product Architect
+                        Systems Engineering | People | Processes
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
-                    {/* Image Column */}
-                    <div className="space-y-6">
-                        <div className="aspect-square relative rounded-2xl overflow-hidden shadow-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900/50 group">
-                            <Image 
-                                src="/images/dbz-sheet.png"
-                                alt="Vatsal Vora Character Sheet"
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                            />
-                        </div>
-                        <p className="text-xs font-mono text-zinc-600 dark:text-zinc-400 text-center italic mt-2 w-full">
-                            * Me, if I was drawn by Akira Toriyama *
+                <div className="max-w-3xl space-y-10 text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono text-sm md:text-base">
+                    <div className="space-y-4">
+                        <p>
+                            I&apos;m a Computer Systems Engineer and Services and Materials Specialist based in Guimarães, Portugal. My engineering background helps me understand systems as a whole, while my professional experience brings together operational support, supplier coordination, billing, invoicing, and inventory management.
                         </p>
-                        
-                        <div className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 space-y-4">
-                            <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest font-sans">Superpower</h3>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono">
-                                <span className="text-purple-600 dark:text-purple-400 font-bold">Debugging.</span> I&apos;m the one you call when the &quot;impossible&quot; bug shows up. I genuinely enjoy the detective work.
-                            </p>
-                        </div>
+                        <p>
+                            I&apos;m especially interested in how people and processes work together. I enjoy collaborating with different teams, communicating clearly with stakeholders, and looking for practical ways to improve workflows, accuracy, and the use of resources.
+                        </p>
+                        <p>
+                            I&apos;m currently working on two systems with a strong focus on the people who use them: an assistant to help orthopaedic clinicians identify X-ray references and calculate measurements, and an ERP for a textile company designed around user-friendly workflows and clear manuals for each task. Both projects reflect my interest in applying systems engineering to real needs, supporting productivity, and improving processes.
+                        </p>
                     </div>
 
-                    {/* Text Column */}
-                    <div className="space-y-10 text-zinc-600 dark:text-zinc-400 leading-relaxed font-mono text-sm md:text-base">
-                        <div className="space-y-4">
-                            <p>
-                                I&apos;m a full-stack developer with <strong className="text-zinc-900 dark:text-zinc-100 font-semibold">5 years of experience</strong> building products that don&apos;t just look good, but actually work under pressure. I&apos;ve learned the hard way that a &quot;scalable solution&quot; is only as good as the user experience it supports. I&apos;m a polymath at heart and a relentless debugger. I enjoy the &quot;detective work&quot; of untangling complex system failures and turning them into stable, performant code. I bridge the gap between deep technical architecture and actual impact.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-zinc-100 dark:border-zinc-900">
-                            <div className="space-y-3">
-                                <h3 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest font-sans flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500" /> My Philosophy
-                                </h3>
-                                <p className="text-xs leading-relaxed opacity-80 pl-3.5 border-l border-zinc-200 dark:border-zinc-800">
-                                    Product-first. I build for the human on the other side of the screen, not just the spec.
-                                </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-zinc-100 dark:border-zinc-900">
+                        {[
+                            { title: "People & teams", text: "Communication, collaboration, coordination, and supporting shared goals." },
+                            { title: "Process improvement", text: "Workflow awareness, accurate records, cost consciousness, and continuous improvement." },
+                            { title: "Operational systems", text: "Hands-on experience with SAP, INTEX, and ManWinWin." },
+                        ].map((item) => (
+                            <div key={item.title} className="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 space-y-3">
+                                <h2 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 font-sans">{item.title}</h2>
+                                <p className="text-xs leading-relaxed">{item.text}</p>
                             </div>
-                            <div className="space-y-3">
-                                <h3 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-widest font-sans flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500" /> The Core
-                                </h3>
-                                <p className="text-xs leading-relaxed opacity-80 pl-3.5 border-l border-zinc-200 dark:border-zinc-800">
-                                    Software architecture, full-stack development, and a lot of coffee.
-                                </p>
-                            </div>
-                        </div>
+                        ))}
+                    </div>
 
-                        <div className="space-y-4 pt-10">
-                            <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 font-sans tracking-tight"> When I&apos;m not coding...</h2>
-                            <ul className="space-y-3 pl-2 text-sm">
-                                <li className="flex items-start gap-3">
-                                    <span className="text-purple-500">🕹️</span>
-                                    <span>Catching up on my <strong className="text-zinc-900 dark:text-zinc-200">Gaming</strong> backlog.</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-purple-500">🌌</span>
-                                    <span>Watching <strong className="text-zinc-900 dark:text-zinc-200">Anime</strong> (open for recommendations!).</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <span className="text-purple-500">🛠️</span>
-                                    <span>Tinkering with <strong className="text-zinc-900 dark:text-zinc-200">Raspberry Pi</strong> or Arduino when the mood strikes.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div className="pt-8 flex items-center gap-6 text-[11px] font-bold text-zinc-600 font-sans uppercase tracking-[0.2em]">
-                            <a href="https://github.com/vatsal30" aria-label="GitHub Profile" className="hover:text-purple-500 transition-colors flex items-center gap-2"><Github size={14}/> GitHub</a>
-                            <a href="https://linkedin.com/in/vatsal30" aria-label="LinkedIn Profile" className="hover:text-purple-500 transition-colors flex items-center gap-2"><Linkedin size={14}/> LinkedIn</a>
-                            <a href="mailto:vatsalds30@gmail.com" aria-label="Send an Email" className="hover:text-purple-500 transition-colors flex items-center gap-2"><Mail size={14}/> Email</a>
-                        </div>
+                    <div className="pt-4 flex flex-wrap items-center gap-6 text-[11px] font-bold text-zinc-600 font-sans uppercase tracking-[0.2em]">
+                        <a href="https://github.com/ricardosilva21A" aria-label="GitHub Profile" className="hover:text-purple-500 transition-colors flex items-center gap-2"><Github size={14}/> GitHub</a>
+                        <a href="https://linkedin.com/in/ricardofsilva0" aria-label="LinkedIn Profile" className="hover:text-purple-500 transition-colors flex items-center gap-2"><Linkedin size={14}/> LinkedIn</a>
+                        <a href="mailto:refds1505@gmail.com" aria-label="Send an Email" className="hover:text-purple-500 transition-colors flex items-center gap-2"><Mail size={14}/> Email</a>
                     </div>
                 </div>
             </div>

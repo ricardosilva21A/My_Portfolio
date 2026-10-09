@@ -1,140 +1,56 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { Music, Film, Gamepad2, Tv } from "lucide-react";
-
+import { ChartNoAxesCombined, MapPin, Users, Workflow } from "lucide-react";
 import LLMWrapper from "@/components/LLMWrapper";
-import { getSpotifyTopTracks } from "@/lib/spotify";
-import { getTmdbRecentlyWatched } from "@/lib/tmdb";
-import { getAniListCurrentlyWatching } from "@/lib/anilist";
-import MediaGrid, { MediaItem } from "@/components/MediaGrid";
 
 export const metadata = {
-    title: "Interests & Tracker | My Portfolio",
-    description: "What I'm currently listening to, watching, and playing.",
+    title: "Focus Areas | Ricardo Silva",
+    description: "Ricardo Silva's interests in people management, process coordination, and continuous improvement.",
 };
 
+const focusAreas = [
+    {
+        title: "People & team development",
+        description: "Building trust, communicating clearly, and helping people work together toward shared objectives.",
+        icon: Users,
+    },
+    {
+        title: "Process coordination",
+        description: "Understanding workflows and hand-offs so that responsibilities, information, and resources are coordinated effectively.",
+        icon: Workflow,
+    },
+    {
+        title: "Continuous improvement",
+        description: "Looking for practical opportunities to improve efficiency, accuracy, service, and cost awareness.",
+        icon: ChartNoAxesCombined,
+    },
+];
 
-// --- Local File Fetcher ---
-function getGamesData(): MediaItem[] {
-    try {
-        const filePath = path.join(process.cwd(), "content", "games.md");
-        const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data } = matter(fileContents);
-
-        let games: MediaItem[] = [];
-
-        // Combine currently playing and completed into one list
-        interface GameData { title: string; platform: string; coverUrl?: string; rating?: number; }
-
-        if (data.currentlyPlaying) {
-            games = games.concat(data.currentlyPlaying.map((g: GameData, i: number) => ({
-                id: `playing-${i}`,
-                title: g.title,
-                subtitle: g.platform,
-                imageUrl: g.coverUrl,
-                rating: "Active"
-            })));
-        }
-
-        if (data.recentlyCompleted) {
-            games = games.concat(data.recentlyCompleted.map((g: GameData, i: number) => ({
-                id: `completed-${i}`,
-                title: g.title,
-                subtitle: g.platform,
-                imageUrl: g.coverUrl,
-                rating: g.rating ? `${g.rating}/10` : "Done"
-            })));
-        }
-
-        return games;
-    } catch (error) {
-        console.error("Error reading games.md", error);
-        return [];
-    }
-}
-
-export default async function InterestsPage() {
-    const topTracks = await getSpotifyTopTracks();
-    const movies = await getTmdbRecentlyWatched();
-    const anime = await getAniListCurrentlyWatching("vector30");
-    const games = getGamesData();
-
-    const llmMarkdown = `
-# Engineering The Interests Dashboard
-
-This dashboard is a live-tracking aggregator that fuses data from three distinct external REST APIs alongside a local, parsed Markdown database, acting as a real-time reflection of my digital footprint.
-
-### 🎧 Spotify Web API (OAuth 2.0)
-The top tracks section authenticates securely to Spotify using a Refresh Token flow, hitting the '/me/top/tracks' endpoint to pull a high-fidelity list of my most listened-to audio.
-
-### 🍿 TMDB & AniList (GraphQL & REST)
-My watched media is synced via two massive databases:
-1. **TMDB (The Movie Database):** REST API fetching my recently logged films and TV shows.
-2. **AniList:** A GraphQL query pulling my active watch statuses for Japanese Animation.
-
-### 🎮 Local Markdown (Gray-Matter)
-My gaming backlog is maintained in a local 'games.md' file. At build/request time, Next.js utilizes 'fs' to read the file and 'gray-matter' to parse the YAML frontmatter, aggressively typed into a 'MediaItem' interface.
-
-*Raw Data Feed:*
-- **Music**: ${topTracks.map(t => typeof t.title === 'string' ? t.title + ' by ' + t.subtitle : '').join(', ')}
-- **Movies**: ${movies.map(m => typeof m.title === 'string' ? m.title : '').join(', ')}
-- **Anime**: ${anime.map(a => typeof a.title === 'string' ? a.title : '').join(', ')}
-- **Games**: ${games.map(g => typeof g.title === 'string' ? g.title : '').join(', ')}
-  `;
+export default function FocusAreasPage() {
+    const llmContent = `# Focus Areas\n\nRicardo Silva is based in Guimarães, Portugal, and is interested in people management, process coordination, and continuous improvement. These interests connect his operational experience in services and materials with his Computer Systems Engineering studies.`;
 
     return (
-        <LLMWrapper llmContent={llmMarkdown}>
-            <div className="container mx-auto px-4 max-w-5xl pt-24 pb-16 space-y-20">
-                <header className="space-y-4">
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Interests & Tracking</h1>
-                    <p className="text-lg text-zinc-600 dark:text-zinc-400 text-pretty">
-                        A live look at what I'm listening to, watching, and playing right now.
+        <LLMWrapper llmContent={llmContent}>
+            <main className="container mx-auto min-h-[80vh] max-w-5xl space-y-12 px-4 pb-16 pt-32">
+                <header className="space-y-5 border-b border-zinc-200 pb-10 dark:border-zinc-800">
+                    <div className="flex items-center gap-2 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                        <MapPin size={16} className="text-purple-500" />
+                        Guimarães, Portugal
+                    </div>
+                    <h1 className="text-4xl font-black tracking-tight md:text-5xl">People, Processes &amp; Improvement</h1>
+                    <p className="max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+                        The areas I want to keep developing, and where I aim to make a practical contribution to teams and organizations.
                     </p>
                 </header>
 
-                {/* Music Section */}
-                <section>
-                    <MediaGrid
-                        title="Spotify Top Tracks"
-                        icon={<Music className="text-purple-500" />}
-                        items={topTracks}
-                        exportName="vatsal_music.json"
-                        layout="list"
-                    />
+                <section className="grid gap-5 md:grid-cols-3" aria-label="Areas of focus">
+                    {focusAreas.map(({ title, description, icon: Icon }) => (
+                        <article key={title} className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50">
+                            <Icon size={24} className="mb-5 text-purple-500" />
+                            <h2 className="mb-3 text-xl font-bold">{title}</h2>
+                            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{description}</p>
+                        </article>
+                    ))}
                 </section>
-
-                {/* Anime Section */}
-                <section>
-                    <MediaGrid
-                        title="Anime"
-                        icon={<Tv className="text-purple-500" />}
-                        items={anime}
-                        exportName="vatsal_anime.json"
-                    />
-                </section>
-
-                {/* Movies & TV Section */}
-                <section>
-                    <MediaGrid
-                        title="Movies & TV"
-                        icon={<Film className="text-purple-500" />}
-                        items={movies}
-                        exportName="vatsal_movies.json"
-                    />
-                </section>
-
-                {/* Games Section */}
-                <section>
-                    <MediaGrid
-                        title="Games"
-                        icon={<Gamepad2 className="text-orange-500" />}
-                        items={games}
-                        exportName="vatsal_games.json"
-                    />
-                </section>
-
-            </div>
+            </main>
         </LLMWrapper>
     );
 }

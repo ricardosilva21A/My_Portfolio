@@ -1,7 +1,7 @@
 import { NoteMeta } from "./github";
 import matter from "gray-matter";
 
-const BLOG_REPO = "vatsal30/articles-content";
+const BLOG_REPO = "ricardosilva21A/articles-content";
 
 const slugify = (text: string) => {
   return text
@@ -72,7 +72,7 @@ export async function getBlogList(): Promise<NoteMeta[]> {
             title,
             category: data.category || "Blog",
             date: data.date || new Date().toISOString().split("T")[0],
-            excerpt: data.excerpt || `Article from vectorbuilds.dev`,
+            excerpt: data.excerpt || `Article by Ricardo Silva`,
             path: item.path,
             tags: data.tags || [],
           });
